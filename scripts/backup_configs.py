@@ -22,4 +22,4 @@ devices = nr.filter(site="cmh")
 result = devices.run(
     name="Backup device configurations", path=BACKUP_PATH, task=backup_config
 )
-print_result(result)
+print_result(result, vars=["stdout"])
