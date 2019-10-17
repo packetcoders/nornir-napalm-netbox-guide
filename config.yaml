@@ -3,9 +3,8 @@ core:
     num_workers: 100
  
 inventory:
-    plugin: nornir.plugins.inventory.simple.SimpleInventory
-    options:
-        host_file: "inventory/hosts.yaml"
-        group_file: "inventory/groups.yaml"
-        defaults_file: "inventory/defaults.yaml"
-
+  plugin: nornir.plugins.inventory.netbox.NBInventory
+  options:
+    nb_url: 'http://172.29.236.139:32768'
+    nb_token: '1e6c13f5497143693516f42a220bf74a21befc37'
+    ssl_verify: False
