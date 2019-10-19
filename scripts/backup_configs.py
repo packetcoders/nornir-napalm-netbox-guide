@@ -17,9 +17,9 @@ def backup_config(task, path):
 
 nr = InitNornir(config_file="./config.yaml")
 
-devices = nr.filter(site="cmh")
+devices = nr.filter()
 
 result = devices.run(
-    name="Backup device configurations", path=BACKUP_PATH, task=backup_config
+    name="Backup Device configurations", path=BACKUP_PATH, task=backup_config
 )
-print_result(result, vars=["stdout"])
+print_result(result)

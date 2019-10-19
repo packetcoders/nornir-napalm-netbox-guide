@@ -8,3 +8,5 @@ inventory:
     nb_url: 'http://172.29.236.139:32768'
     nb_token: '1e6c13f5497143693516f42a220bf74a21befc37'
     ssl_verify: False
+  transform_function: "helpers.adapt_user_password"
+
