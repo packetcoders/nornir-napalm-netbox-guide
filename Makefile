@@ -24,25 +24,25 @@ lint-ansible: ## Perform linting against ansible yaml files
 lint-py: ## Perform linting against py files
 	@echo "[*] Performing PyLint."
 	@. ./venv/bin/activate
-	@find $$PYROOT -name venv -prune -o -name *.py -exec pylint {} \;
+	@find $$PYROOT -name venv -prune -o -name '*.py' -exec pylint {} +
 
 .PHONY: black-check
 black-check: ## Perform Black formatting against py files. Check ONLY.
 	@echo "[*] Performing Black (Check)."
 	@. ./venv/bin/activate
-	@find $$PYROOT -name venv -prune -o -name *.py -exec black -v --check {} \;
+	@find $$PYROOT -name venv -prune -o -name '*.py' -exec black -v --check {} +
 
 .PHONY: black-diff
 black-diff: ## Perform formatting against py files. Diff ONLY.
 	@echo "[*] Performing Black (Diff)."
 	@. ./venv/bin/activate
-	@find $$PYROOT -name venv -prune -o -name *.py -exec black --diff {} \;
+	@find $$PYROOT -name venv -prune -o -name '*.py' -exec black --diff {} +
 
 .PHONY: black
 black: ## Perform formatting against py files.
 	@echo "[*] Performing Black."
 	@. ./venv/bin/activate
-	@find $$PYROOT -name venv -prune -o -name *.py -exec black {} \;
+	@find $$PYROOT -name venv -prune -o -name '*.py' -exec black {} \;
 
 .PHONY: install-py3.6
 install-py3.6: ## Install Python3.6

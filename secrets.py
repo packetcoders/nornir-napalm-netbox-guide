@@ -1,10 +1,4 @@
 creds = {
-  "qfx1": {
-    "username": "user1",
-    "password": "abc123"
-  },
-  "host1": {
-    "username": "user1",
-    "password": "abc123"
-  }
+    "qfx1": {"username": "admin", "password": "Juniper"},
+    "host1": {"username": "user1", "password": "abc123"},
 }
