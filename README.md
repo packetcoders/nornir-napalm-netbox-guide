@@ -1,5 +1,18 @@
-## About
+## Configure Environment
+netbox
+repo
+Nornir - config
 
+
+## Backup configs
+
+
+
+## Netbox Plugin
+
+## Collecting Configurations
+
+## Updating Netbox 
 
 
 ## Napalm
