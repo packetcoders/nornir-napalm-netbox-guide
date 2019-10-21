@@ -1,3 +1,5 @@
+#!./venv/bin/python
+
 from nornir.plugins.tasks import networking
 from nornir.plugins.functions.text import print_result
 from nornir.plugins.tasks.files import write_file

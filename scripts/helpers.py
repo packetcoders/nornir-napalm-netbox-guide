@@ -16,7 +16,7 @@ if __name__ == "__main__":
 
     parser = argparse.ArgumentParser(description="Nornir Helper CLI")
     parser.add_argument(
-        "-i", "--inventory", action="store_true", help="inventory", required=False
+        "-i", "--inventory", action="store_true", help="show inventory", required=False
     )
 
     args = vars(parser.parse_args())
