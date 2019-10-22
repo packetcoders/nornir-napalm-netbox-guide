@@ -19,9 +19,10 @@ def backup_config(task, path):
 
 nr = InitNornir(config_file="./config.yaml")
 
-devices = nr.filter()
+devices = nr.filter(role="switch")
 
 result = devices.run(
     name="Backup Device configurations", path=BACKUP_PATH, task=backup_config
 )
-print_result(result)
+
+print_result(result, vars=["stdout"])

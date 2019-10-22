@@ -1,0 +1,35 @@
+! Command: show running-config
+! device: veos (vEOS, EOS-4.15.10M)
+!
+! boot system flash:/vEOS-lab.swi
+!
+transceiver qsfp default-mode 4x10G
+!
+hostname veos
+!
+spanning-tree mode mstp
+!
+no aaa root
+aaa authentication policy local allow-nopassword-remote-login
+!
+username admin privilege 15 role network-admin secret 5 $1$zPQjHw8.$nvUzhn0yYAXNwh5tYgF5t1
+username bob privilege 15 secret 5 $1$EGQJlod0$CdkMmW1FoiRgMfbLFD/kB/
+!
+interface Ethernet1
+!
+interface Ethernet2
+!
+interface Ethernet3
+!
+interface Management1
+   ip address 172.29.133.4/24
+!
+ip route 0.0.0.0/0 172.29.133.254
+!
+no ip routing
+!
+management api http-commands
+   no shutdown
+!
+!
+end

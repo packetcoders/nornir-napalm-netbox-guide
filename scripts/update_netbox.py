@@ -18,13 +18,13 @@ def update_netbox_device_field(task):
     r = task.run(task=networking.napalm_get, getters=["facts"])
     os_version = r.result["facts"]["os_version"]
     netbox.dcim.update_device(
-        device_name=f"{task.host}", custom_fields={"nos_version": os_version}
+        device_name=f"{task.host}", custom_fields={"Version": os_version}
     )
 
 
-devices = nr.filter()
+devices = nr.filter(role="switch")
 
 result = devices.run(
     name="Update Netbox Device Version", task=update_netbox_device_field
 )
-print_result(result)
+print_result(result, vars=["stdout"])

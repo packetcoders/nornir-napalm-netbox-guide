@@ -1,7 +1,8 @@
 
-## Last commit: 2019-10-07 19:21:50 UTC by admin
+## Last commit: 2019-10-21 21:03:17 UTC by admin
 version 18.1R3-S2.5;
 system {
+    host-name vqfx;
     root-authentication {
         encrypted-password "$6$ASo5Pedn$s37DzWeX400Xk/jOKMWHzT4FL9sg16At0rkOaalkiCt08EwpcbSaFl2cea97UFDuhvubIl28dXsX0PkTDQVji/";
     }
