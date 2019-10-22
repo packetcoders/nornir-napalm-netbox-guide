@@ -1,29 +1,26 @@
 #!./venv/bin/python
 
+import re
 from nornir.plugins.tasks import networking
 from nornir.plugins.functions.text import print_result
-from nornir.plugins.tasks.files import write_file
 from nornir import InitNornir
 from netbox import NetBox
-import re
 
 nr = InitNornir(config_file="./config.yaml")
 
-NB_URL, NB_TOKEN, SSL_VERIFY = nr.config.inventory.options.values()
-NB_HOST = re.sub("^.*//|:.*$", "", NB_URL)
+nb_url, nb_token, ssl_verify = nr.config.inventory.options.values()
+nb_host = re.sub("^.*//|:.*$", "", nb_url)
 
-NETBOX = NetBox(host=NB_HOST, port=32768, use_ssl=False, auth_token=NB_TOKEN)
+netbox = NetBox(host=nb_host, port=32768, use_ssl=False, auth_token=nb_token)
 
 
 def update_netbox_device_field(task):
     r = task.run(task=networking.napalm_get, getters=["facts"])
     os_version = r.result["facts"]["os_version"]
-    NETBOX.dcim.update_device(
+    netbox.dcim.update_device(
         device_name=f"{task.host}", custom_fields={"nos_version": os_version}
     )
 
-
-nr = InitNornir(config_file="./config.yaml")
 
 devices = nr.filter()
 

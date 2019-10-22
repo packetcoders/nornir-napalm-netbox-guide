@@ -1,4 +1,5 @@
 creds = {
-    "qfx1": {"username": "admin", "password": "Juniper"},
-    "host1": {"username": "user1", "password": "abc123"},
+    "vqfx": {"username": "admin", "password": "Juniper"},
+    "vios": {"username": "cisco", "password": "cisco"},
+    "veos": {"username": "admin", "password": "arista"},
 }
