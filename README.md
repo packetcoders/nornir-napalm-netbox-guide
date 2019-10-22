@@ -1,30 +1,16 @@
 ## Configure Environment
-netbox
-repo
-Nornir - config
+### Local Environment
+### Nornir
+### Netbox
+
+## Usecase 1 - Backup configs
 
 
-## Backup configs
+## Usecase 2 - Updating Netbox
 
-
-
-## Netbox Plugin
-
-## Collecting Configurations
-
-## Updating Netbox 
-
-
-## Napalm
-show some examples
-
-
-## Nornir
-
-### backup_configs.py
-
+## Misc
 ### helpers.py
-Script contain a CLI with useful shortcuts:
+Within `scripts/` you will find `helpers.py`. This contains the transform functions for manipulating the Nornir inventory, along with a small CLI, which contans some common actions that can help with dev/troubleshooting..
 ```
 usage: helpers.py [-h] [-i]
 
@@ -34,6 +20,5 @@ optional arguments:
   -h, --help       show this help message and exit
   -i, --inventory  show inventory
 ```
-`helpers.py` also contains transform functions for manipulating the inventory. Used in this example for injecting device credentials.
 
 ## Netbox
