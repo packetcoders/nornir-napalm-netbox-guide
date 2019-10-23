@@ -1,12 +1,43 @@
-## Configure Environment
-### Local Environment
-### Nornir
-### Netbox
+## About
+This repo contains 2 simple usecase that demo the integration of Netbox, Napalm and Nornir.
 
-## Usecase 1 - Backup configs
+## Layout
+```
+.
+├ config.yaml
+├ data
+│   └ configs
+│       ├ veos.txt
+│       ├ vios.txt
+│       └ vqfx.txt
+├ inventory
+│   ├ defaults.yaml
+│   ├ groups.yaml
+│   └ hosts.yaml
+├ Makefile
+├ nornir.log
+├ README.md
+├ requirements.txt
+└ scripts
+    ├ backup_configs.py
+    ├ helpers.py
+    ├ __init__.py
+    ├ secrets.py
+    └ update_netbox.py
+```
+## Files
+* `Makefile` - various bash commands to set up environment.
+* `/inventory/*` - not used due to netbox integration.
+* `secrets.py` - contains device username/passwords.
+* `helpers.py` - contains inventory transform functions.
+* `config.yaml` - nornir configuration inc. netbox plugin.
 
+## Usecases
+### Backup configs
+`scripts/backup_configs.py`
 
-## Usecase 2 - Updating Netbox
+### Populating Netbox
+`scripts/update_netbox.py`
 
 ## Misc
 ### helpers.py
@@ -20,5 +51,3 @@ optional arguments:
   -h, --help       show this help message and exit
   -i, --inventory  show inventory
 ```
-
-## Netbox
