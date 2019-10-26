@@ -10,10 +10,6 @@ This repo contains 2 simple usecase that demo the integration of Netbox, Napalm 
 │       ├ veos.txt
 │       ├ vios.txt
 │       └ vqfx.txt
-├ inventory
-│   ├ defaults.yaml
-│   ├ groups.yaml
-│   └ hosts.yaml
 ├ Makefile
 ├ nornir.log
 ├ README.md
@@ -27,7 +23,6 @@ This repo contains 2 simple usecase that demo the integration of Netbox, Napalm 
 ```
 ## Files
 * `Makefile` - various bash commands to set up environment.
-* `/inventory/*` - not used due to netbox integration.
 * `secrets.py` - contains device username/passwords.
 * `helpers.py` - contains inventory transform functions.
 * `config.yaml` - nornir configuration inc. netbox plugin.
