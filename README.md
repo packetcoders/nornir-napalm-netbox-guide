@@ -24,11 +24,8 @@ This repo contains 2 simple usecase that demo the integration of Netbox, Napalm 
 * `config.yaml` - nornir configuration inc. netbox plugin.
 
 ## Usecases
-### Backup configs
-`scripts/backup_configs.py`
-
-### Populating Netbox
-`scripts/update_netbox.py`
+* Backup configs - `scripts/backup_configs.py`
+* Populating Netbox - `scripts/update_netbox.py`
 
 ## Misc
 ### helpers.py
