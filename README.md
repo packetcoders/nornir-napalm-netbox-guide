@@ -7,11 +7,7 @@ This repo contains 2 simple usecase that demo the integration of Netbox, Napalm 
 ├ config.yaml
 ├ data
 │   └ configs
-│       ├ veos.txt
-│       ├ vios.txt
-│       └ vqfx.txt
 ├ Makefile
-├ nornir.log
 ├ README.md
 ├ requirements.txt
 └ scripts
