@@ -29,13 +29,16 @@ This repo contains 2 simple usecase that demo the integration of Netbox, Napalm 
 
 ## Misc
 ### helpers.py
-Within `scripts/` you will find `helpers.py`. This contains the transform functions for manipulating the Nornir inventory, along with a small CLI, which contans some common actions that can help with dev/troubleshooting..
+Within `scripts/` you will find `helpers.py`. This contains the transform functions for manipulating the Nornir inventory, along with a small CLI, which contans some common actions that can help with dev/troubleshooting.
 ```
-usage: helpers.py [-h] [-i]
+# scripts/helpers.py --help
+usage: helpers.py [-h] [-i] [-n]
 
 Nornir Helper CLI
 
 optional arguments:
   -h, --help       show this help message and exit
   -i, --inventory  show inventory
+  -n, --netbox     netbox debug
 ```
+Note: When running the netbox option, use `python -i`, this will then drop into a shell, from which you will have access to the `netbox` instance.
