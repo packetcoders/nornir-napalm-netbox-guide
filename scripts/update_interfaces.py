@@ -6,7 +6,6 @@ from nornir.plugins.functions.text import print_result
 from nornir import InitNornir
 from netbox import NetBox
 from helpers import is_interface_present
-import pprint
 
 nr = InitNornir(config_file="./config.yaml")
 
@@ -30,7 +29,7 @@ def update_netbox_interface(task, nb_interfaces):
 
         if is_interface_present(nb_interfaces, f"{task.host}", interface_name):
             print(
-                f"* Updating NB Interface : device {task.host}, interface {interface_name}"
+                f"* Updating Netbox Interface for device {task.host}, interface {interface_name}"
             )
             netbox.dcim.update_interface(
                 device=f"{task.host}",

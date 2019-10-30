@@ -1,4 +1,4 @@
-#!./venv/bin/python -i
+#!./venv/bin/python
 
 from secrets import creds
 from nornir import InitNornir
@@ -6,6 +6,7 @@ from pprint import pprint
 from netbox import NetBox
 import argparse
 import json
+import re
 
 # Tranform Functions
 
@@ -16,6 +17,12 @@ def adapt_user_password(host):
 
 
 # Netbox
+
+
+nr = InitNornir(config_file="./config.yaml")
+
+nb_url, nb_token, ssl_verify = nr.config.inventory.options.values()
+nb_host = re.sub("^.*//|:.*$", "", nb_url)
 
 
 def is_interface_present(nb_interfaces, device_name, interface_name):
@@ -47,9 +54,5 @@ if __name__ == "__main__":
         nr = InitNornir(config_file="./config.yaml")
         pprint(nr.inventory.get_inventory_dict())
     elif args["netbox"]:
-        netbox = NetBox(
-            host="172.29.236.139",
-            port=32768,
-            use_ssl=False,
-            auth_token="c6d10bb5a03e11120719b2a704409b4a4a7bd004",
-        )
+        # to be used with python -i
+        netbox = NetBox(host=nb_host, port=32768, use_ssl=False, auth_token=nb_token)
