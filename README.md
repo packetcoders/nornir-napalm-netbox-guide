@@ -15,7 +15,8 @@ This repo contains 2 simple usecase that demo the integration of Netbox, Napalm 
     ├ helpers.py
     ├ __init__.py
     ├ secrets.py
-    └ update_netbox.py
+    ├ create_interfaces.py
+    └ update_interfaces.py
 ```
 ## Files
 * `Makefile` - various bash commands to set up environment.
