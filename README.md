@@ -1,5 +1,9 @@
 ## About
 This repo contains 2 simple usecase that demo the integration of Netbox, Napalm and Nornir.
+The full write up can be found at:
+
+The full write up can be located at:
+https://www.packetflow.co.uk/how-to-build-a-network-automation-stack-with-nornir-napalm-and-netbox/
 
 ## Layout
 ```
