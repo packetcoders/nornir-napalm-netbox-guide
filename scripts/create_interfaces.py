@@ -26,12 +26,12 @@ def create_netbox_interface(task, nb_interfaces, netbox):
             print(
                 f"* Creating Netbox Interface for device {task.host}, interface {interface_name}"
             )
-            # device_id = get_device_id(f"{task.host}", netbox)
-            # netbox.dcim.create_interface(
-            #    name=f"{interface_name}",
-            #    form_factor=1200,  # default
-            #    device_id=device_id,
-            # )
+             device_id = get_device_id(f"{task.host}", netbox)
+             netbox.dcim.create_interface(
+                name=f"{interface_name}",
+                form_factor=1200,  # default
+                device_id=device_id,
+             )
 
 
 devices = nr.filter(role="switch")
