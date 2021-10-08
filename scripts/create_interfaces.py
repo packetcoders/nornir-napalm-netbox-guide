@@ -1,24 +1,26 @@
 #!./venv/bin/python
 
 import re
-from nornir.plugins.tasks import networking
-from nornir.plugins.functions.text import print_result
-from nornir import InitNornir
+from nornir_utils.plugins.functions import print_result
+from nornir_utils.plugins.tasks.files import write_file
+from nornir_napalm.plugins.tasks import napalm_get
 from netbox import NetBox
 from helpers import get_device_id, is_interface_present
-import pprint
+from rich import print
+import __init__
 
-nr = InitNornir(config_file="./config.yaml")
 
-nb_url, nb_token, ssl_verify = nr.config.inventory.options.values()
-nb_host = re.sub("^.*//|:.*$", "", nb_url)
-
-netbox = NetBox(host=nb_host, port=32768, use_ssl=False, auth_token=nb_token)
+netbox = NetBox(
+    host=__init__.nb_host,
+    port=__init__.nb_port,
+    use_ssl=False,
+    auth_token=__init__.nb_token,
+)
 nb_interfaces = netbox.dcim.get_interfaces()
 
 
 def create_netbox_interface(task, nb_interfaces, netbox):
-    r = task.run(task=networking.napalm_get, getters=["interfaces"])
+    r = task.run(task=napalm_get, getters=["interfaces"])
     interfaces = r.result["interfaces"]
 
     for interface_name in interfaces.keys():
@@ -28,15 +30,13 @@ def create_netbox_interface(task, nb_interfaces, netbox):
             )
             device_id = get_device_id(f"{task.host}", netbox)
             netbox.dcim.create_interface(
-               name=f"{interface_name}",
-               form_factor=1200,  # default
-               device_id=device_id,
+                name=f"{interface_name}",
+                device_id=device_id,
+                interface_type="1000base-t",
             )
 
 
-devices = nr.filter(role="switch")
-
-result = devices.run(
+result = __init__.nr.run(
     name="Create Netbox Interfaces",
     nb_interfaces=nb_interfaces,
     netbox=netbox,

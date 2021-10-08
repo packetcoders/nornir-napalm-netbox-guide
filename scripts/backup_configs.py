@@ -1,15 +1,16 @@
 #!./venv/bin/python
+from nornir_napalm.plugins.tasks import napalm_get
+from nornir_utils.plugins.functions import print_result
+from nornir_utils.plugins.tasks.files import write_file
+from rich import print
+from __init__ import nr
 
-from nornir.plugins.tasks import networking
-from nornir.plugins.functions.text import print_result
-from nornir.plugins.tasks.files import write_file
-from nornir import InitNornir
 
 BACKUP_PATH = "./data/configs"
 
 
 def backup_config(task, path):
-    r = task.run(task=networking.napalm_get, getters=["config"])
+    r = task.run(task=napalm_get, getters=["config"])
     task.run(
         task=write_file,
         content=r.result["config"]["running"],
@@ -17,12 +18,7 @@ def backup_config(task, path):
     )
 
 
-nr = InitNornir(config_file="./config.yaml")
-
-devices = nr.filter(role="switch")
-
-result = devices.run(
+result = nr.run(
     name="Backup Device configurations", path=BACKUP_PATH, task=backup_config
 )
-
 print_result(result, vars=["stdout"])
