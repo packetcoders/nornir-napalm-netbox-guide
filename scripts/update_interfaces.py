@@ -1,20 +1,20 @@
 #!./venv/bin/python
 
 import re
-from nornir import InitNornir
 from nornir_utils.plugins.functions import print_result
 from nornir_utils.plugins.tasks.files import write_file
 from nornir_napalm.plugins.tasks import napalm_get
 from netbox import NetBox
-from helpers import is_interface_present
+from helpers import get_device_id, is_interface_present
 from rich import print
+import __init__
 
-nr = InitNornir(config_file="./config.yaml")
-
-nb_url, nb_token, ssl_verify = nr.config.inventory.options.values()
-nb_host = re.sub("^.*//|:.*$", "", nb_url)
-
-netbox = NetBox(host=nb_host, port=32768, use_ssl=False, auth_token=nb_token)
+netbox = NetBox(
+    host=__init__.nb_host,
+    port=__init__.nb_port,
+    use_ssl=False,
+    auth_token=__init__.nb_token,
+)
 nb_interfaces = netbox.dcim.get_interfaces()
 
 
@@ -38,9 +38,7 @@ def update_netbox_interface(task, nb_interfaces):
                 mac_address=mac_address,
             )
 
-devices = nr.filter(role="switch")
-
-result = devices.run(
+result = __init__.nr.run(
     name="Update Netbox Interfaces",
     nb_interfaces=nb_interfaces,
     task=update_netbox_interface,
