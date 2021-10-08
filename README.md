@@ -11,7 +11,6 @@ https://www.packetflow.co.uk/how-to-build-a-network-automation-stack-with-nornir
 .
 ├ data
 │   └ configs
-├ Makefile
 ├ README.md
 ├ requirements.txt
 └ scripts
@@ -25,7 +24,7 @@ https://www.packetflow.co.uk/how-to-build-a-network-automation-stack-with-nornir
 
 ## Files
 
-* `Makefile` - various bash commands to set up environment.
+* `__init__.py` - Initialize various variables.
 * `secrets.py` - contains device username/passwords.
 * `helpers.py` - contains inventory transform functions.
 * `config.yaml` - nornir configuration inc. netbox plugin.
