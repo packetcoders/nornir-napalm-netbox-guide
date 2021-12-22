@@ -1,10 +1,11 @@
 #!./venv/bin/python
+
+from helpers import nornir_setup
 from nornir_napalm.plugins.tasks import napalm_get
 from nornir_utils.plugins.functions import print_result
 from nornir_utils.plugins.tasks.files import write_file
-from rich import print
-from __init__ import nr
 
+nr = nornir_setup()
 
 BACKUP_PATH = "./data/configs"
 
@@ -21,4 +22,5 @@ def backup_config(task, path):
 result = nr.run(
     name="Backup Device configurations", path=BACKUP_PATH, task=backup_config
 )
+
 print_result(result, vars=["stdout"])
