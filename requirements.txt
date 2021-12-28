@@ -1,3 +1,4 @@
+autoflake==1.4
 bcrypt==3.2.0
 black==21.9b0
 certifi==2021.5.30
@@ -12,6 +13,7 @@ dnspython==2.1.0
 future==0.18.2
 idna==3.2
 ipaddress==1.0.23
+isort==5.10.1
 Jinja2==3.0.2
 junos-eznc==2.6.3
 loguru==0.5.3
@@ -33,10 +35,12 @@ pathspec==0.9.0
 platformdirs==2.4.0
 pycparser==2.20
 pyeapi==0.8.4
+pyflakes==2.4.0
 Pygments==2.10.0
 PyNaCl==1.4.0
 pyparsing==2.4.7
 pyserial==3.5
+python-dotenv==0.19.2
 python-netbox==0.0.21
 PyYAML==5.4.1
 regex==2021.9.30

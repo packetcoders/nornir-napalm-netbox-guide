@@ -3,16 +3,7 @@ inventory:
   plugin: NetBoxInventory2
   options:
      nb_url: 'http://netbox.lab.packetcoders.io:8080/'
-     nb_token: '0123456789abcdef0123456789abcdef01234567'
      ssl_verify: False
 
-#logging:
-  # surpress ConflictingConfigurationWarning from Pytest
-#  enabled: False
-
-#extras:
-#  connection_options:
-#    scrapli:
-#      port: 22
-#      extras:
-#        transport: ssh2
+logging:
+  enabled: False

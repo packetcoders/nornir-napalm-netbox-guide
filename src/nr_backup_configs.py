@@ -1,4 +1,4 @@
-#!./venv/bin/python
+#!/usr/bin/env python
 
 from helpers import nornir_setup
 from nornir_napalm.plugins.tasks import napalm_get
@@ -11,10 +11,10 @@ BACKUP_PATH = "./data/configs"
 
 
 def backup_config(task, path):
-    r = task.run(task=napalm_get, getters=["config"])
+    device_config = task.run(task=napalm_get, getters=["config"])
     task.run(
         task=write_file,
-        content=r.result["config"]["running"],
+        content=device_config.result["config"]["running"],
         filename=f"{path}/{task.host}.txt",
     )
 

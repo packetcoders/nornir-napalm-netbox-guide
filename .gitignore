@@ -1,8 +1,4 @@
-# virl directory
-.virl/*
-
-# ansible directories/files
-*.retry
+data/configs/*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
