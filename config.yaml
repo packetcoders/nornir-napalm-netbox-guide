@@ -1,12 +1,10 @@
 ---
-core:
-    num_workers: 100
- 
 inventory:
-  plugin: nornir.plugins.inventory.netbox.NBInventory
+  plugin: NetBoxInventory2
   options:
-    nb_url: 'http://172.29.236.139:32768'
-    nb_token: 'c6d10bb5a03e11120719b2a704409b4a4a7bd004'
-    ssl_verify: False
-  transform_function: "helpers.adapt_user_password"
+     #nb_url: 'http://127.0.0.1:8080/'
+     nb_url: 'http://netbox.lab.packetcoders.io:8080/'
+     ssl_verify: False
 
+logging:
+  enabled: False
