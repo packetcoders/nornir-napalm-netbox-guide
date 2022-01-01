@@ -1,4 +1,5 @@
-data/configs/*
+data/configs/leaf*
+data/configs/spine*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
