@@ -3,7 +3,7 @@ inventory:
   plugin: NetBoxInventory2
   options:
      #nb_url: 'http://127.0.0.1:8080/'
-     nb_url: 'http://netbox.lab.packetcoders.io:8080/'
+     #nb_url: 'http://netbox.lab.packetcoders.io:8080/'
      ssl_verify: False
 
 logging:
