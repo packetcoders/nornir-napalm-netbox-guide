@@ -10,7 +10,7 @@ build: ## Build
 	docker build -t n3-guide .
 
 test: ## Test
-	docker run -v $(shell pwd):/source -w /local --env-file .env n3-guide:latest pytest -v tests/
+	docker run -tv $(shell pwd):/source -w /local --env-file .env n3-guide:latest pytest -v tests/
 
-cli:
+cli: ## CLI
 	docker run -it -v $(shell pwd):/source -w /local --env-file .env n3-guide:latest bash
