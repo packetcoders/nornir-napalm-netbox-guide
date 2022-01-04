@@ -1,9 +1,10 @@
 #!/usr/bin/env python
 
-from helpers import nornir_setup
 from nornir_napalm.plugins.tasks import napalm_get
 from nornir_utils.plugins.functions import print_result
 from nornir_utils.plugins.tasks.files import write_file
+
+from helpers import nornir_setup
 
 nr = nornir_setup()
 
@@ -23,4 +24,7 @@ result = nr.run(
     name="Backup Device configurations", path=BACKUP_PATH, task=backup_config
 )
 
-print_result(result, vars=["stdout"])
+nr.close_connections()
+
+if __name__ == "__main__":
+    print_result(result, vars=["stdout"])
