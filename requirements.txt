@@ -32,7 +32,7 @@ nornir-netbox==0.3.0
 nornir-utils==0.1.2
 ntc-templates==2.3.2
 packaging==21.3
-paramiko==2.7.2
+paramiko==2.10.1
 passlib==1.7.4
 pathspec==0.9.0
 platformdirs==2.4.0
