@@ -19,7 +19,7 @@ isort==5.10.1
 Jinja2==3.0.2
 junos-eznc==2.6.3
 loguru==0.5.3
-lxml==4.6.5
+lxml==4.9.1
 MarkupSafe==2.0.1
 mypy-extensions==0.4.3
 napalm==3.3.1
